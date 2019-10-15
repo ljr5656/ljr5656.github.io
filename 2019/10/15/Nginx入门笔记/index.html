@@ -5,15 +5,20 @@
   
 
   
-  <title>Hexo</title>
+  <title>Nginx入门笔记 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="01.Nginx环境准备这里我用的是腾讯云，首先用 yum 安装必要程序。 12yum -y install gcc gcc-c++ autoconf pcre-devel make automakeyum -y install wget httpd-tools vim  下载 Nginx 1yum install nginx  然后查询 Nginx 版本以确认是否下载成功。 1nginx -v">
+<meta name="keywords" content="Nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx入门笔记">
+<meta property="og:url" content="http://yoursite.com/2019/10/15/Nginx入门笔记/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="01.Nginx环境准备这里我用的是腾讯云，首先用 yum 安装必要程序。 12yum -y install gcc gcc-c++ autoconf pcre-devel make automakeyum -y install wget httpd-tools vim  下载 Nginx 1yum install nginx  然后查询 Nginx 版本以确认是否下载成功。 1nginx -v">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-15T02:26:27.479Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Nginx入门笔记">
+<meta name="twitter:description" content="01.Nginx环境准备这里我用的是腾讯云，首先用 yum 安装必要程序。 12yum -y install gcc gcc-c++ autoconf pcre-devel make automakeyum -y install wget httpd-tools vim  下载 Nginx 1yum install nginx  然后查询 Nginx 版本以确认是否下载成功。 1nginx -v">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,9 +65,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Nginx入门笔记" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Nginx入门笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/10/15/Nginx入门笔记/" class="article-date">
   <time datetime="2019-10-15T01:29:35.000Z" itemprop="datePublished">2019-10-15</time>
@@ -75,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/15/Nginx入门笔记/">Nginx入门笔记</a>
+    <h1 class="article-title" itemprop="name">
+      Nginx入门笔记
     </h1>
   
 
@@ -129,149 +132,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/02/正则表达式/" class="article-date">
-  <time datetime="2019-10-02T07:14:01.000Z" itemprop="datePublished">2019-10-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/02/正则表达式/">正则表达式</a>
-    </h1>
+    <a href="/2019/10/02/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">正则表达式</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是-RepExp-？"><a href="#什么是-RepExp-？" class="headerlink" title="什么是 RepExp ？"></a>什么是 RepExp ？</h3><p>RepExp 是正则表达式的缩写，通常用于解析，格式检查，替换等<br>JavaScript 中通过 new 关键词来创建 RegExp 对象，也可以通过直接量语法来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var test_1 = new RegExp(&quot;e&quot;);</span><br><span class="line">console.log(test_1);  //  /e/</span><br><span class="line">var test_2 = /e/;</span><br><span class="line">console.log(test_2);  //  /e/</span><br><span class="line">test_1 == test_2      //  false</span><br></pre></td></tr></table></figure>
-
-<h3 id="RepExp-对象的方法及应用"><a href="#RepExp-对象的方法及应用" class="headerlink" title="RepExp 对象的方法及应用"></a>RepExp 对象的方法及应用</h3><p>RepExp 对象有3个方法：test()、exec() 以及 compile()。<br>test() 方法用于检测目标字符串中是否存在指定值，并返回 true 或者 false</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var test_3 = /ll/;</span><br><span class="line">var arr_1 = &quot;hello&quot;;</span><br><span class="line">var arr_2 = &quot;world&quot;;</span><br><span class="line">console.log(test_3.test(arr_1));  //  true</span><br><span class="line">console.log(test_3.test(arr_2));  //  false</span><br></pre></td></tr></table></figure>
-
-<p>exec() 方法用于检测目标字符串中是否存在指定值，并返回被找到的值，若误匹配，则返回null</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var test_4 = /l/;</span><br><span class="line">var arr_3 = &quot;hello world&quot;;</span><br><span class="line">console.log(test_4.exec(arr_3));  //[&quot;l&quot;, index: 2, input: &quot;hello world&quot;, groups: undefined]</span><br></pre></td></tr></table></figure>
-
-<p>可以在正则表达式后加”i”(不区分大小写), “g”(全局匹配), “m”(多行模式)来说明匹配的规则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var test_4 = /L/ig;</span><br><span class="line">console.log(test_4.exec(arr_4))</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck1r671hv0001r4vfd38u5h8q" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-测试文章" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/28/测试文章/" class="article-date">
-  <time datetime="2019-09-28T09:16:13.000Z" itemprop="datePublished">2019-09-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/28/测试文章/">测试文章</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>这是一篇测试文章</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/测试文章/" data-id="ck1r671hz0002r4vfy0i7jqi2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/28/hello-world/" class="article-date">
-  <time datetime="2019-09-28T04:00:38.641Z" itemprop="datePublished">2019-09-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/28/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/hello-world/" data-id="ck1r671hn0000r4vf6rv6uwvo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
