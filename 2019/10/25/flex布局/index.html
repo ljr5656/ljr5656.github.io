@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Flex布局 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="以下内容主要参考阮一峰老师的Flex 布局教程：语法篇 01.什么是Flex布局？Flex 是 Flexible Box 的缩写，意为“弹性布局”，任何一个容器都可以指定为 12345678910111213141516171819202122232425&amp;lt;div id=&amp;quot;box&amp;quot;&amp;gt;    &amp;lt;div&amp;gt;1&amp;lt;/div&amp;gt;    &amp;lt;div&amp;gt">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flex布局">
+<meta property="og:url" content="http://yoursite.com/2019/10/25/flex布局/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="以下内容主要参考阮一峰老师的Flex 布局教程：语法篇 01.什么是Flex布局？Flex 是 Flexible Box 的缩写，意为“弹性布局”，任何一个容器都可以指定为 12345678910111213141516171819202122232425&amp;lt;div id=&amp;quot;box&amp;quot;&amp;gt;    &amp;lt;div&amp;gt;1&amp;lt;/div&amp;gt;    &amp;lt;div&amp;gt">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/image/flex%E5%B8%83%E5%B1%80/01.png">
+<meta property="og:image" content="http://yoursite.com/image/flex%E5%B8%83%E5%B1%80/01.png">
+<meta property="og:image" content="http://yoursite.com/image/flex%E5%B8%83%E5%B1%80/02.png">
+<meta property="og:image" content="http://yoursite.com/image/flex%E5%B8%83%E5%B1%80/03.png">
+<meta property="og:image" content="http://yoursite.com/image/flex%E5%B8%83%E5%B1%80/04.png">
+<meta property="og:image" content="http://yoursite.com/image/flex%E5%B8%83%E5%B1%80/05.png">
+<meta property="og:image" content="http://yoursite.com/image/flex%E5%B8%83%E5%B1%80/06.png">
+<meta property="og:image" content="http://yoursite.com/image/flex%E5%B8%83%E5%B1%80/07.png">
+<meta property="og:updated_time" content="2019-10-27T11:55:08.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flex布局">
+<meta name="twitter:description" content="以下内容主要参考阮一峰老师的Flex 布局教程：语法篇 01.什么是Flex布局？Flex 是 Flexible Box 的缩写，意为“弹性布局”，任何一个容器都可以指定为 12345678910111213141516171819202122232425&amp;lt;div id=&amp;quot;box&amp;quot;&amp;gt;    &amp;lt;div&amp;gt;1&amp;lt;/div&amp;gt;    &amp;lt;div&amp;gt">
+<meta name="twitter:image" content="http://yoursite.com/image/flex%E5%B8%83%E5%B1%80/01.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-flex布局" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/25/flex布局/" class="article-date">
+  <time datetime="2019-10-25T06:45:39.000Z" itemprop="datePublished">2019-10-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Flex布局
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下内容主要参考阮一峰老师的<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="noopener">Flex 布局教程：语法篇</a></p>
+<h2 id="01-什么是Flex布局？"><a href="#01-什么是Flex布局？" class="headerlink" title="01.什么是Flex布局？"></a>01.什么是Flex布局？</h2><p>Flex 是 Flexible Box 的缩写，意为“弹性布局”，<br>任何一个容器都可以指定为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;box&quot;&gt;</span><br><span class="line">    &lt;div&gt;1&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;2&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;3&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;4&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;5&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;6&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">//css代码</span><br><span class="line">#box&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    width: 500px;</span><br><span class="line">    margin: 100px auto;</span><br><span class="line">    border: 2px solid black;</span><br><span class="line">    padding: 10px;</span><br><span class="line">    border-radius: 10px;</span><br><span class="line">&#125;</span><br><span class="line">#box div&#123;</span><br><span class="line">    width: 50px;</span><br><span class="line">    height: 50px;</span><br><span class="line">    background-color: aqua;</span><br><span class="line">    margin: 10px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: 50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/flex%E5%B8%83%E5%B1%80/01.png" alt></p>
+<h2 id="02-Flex容器的属性"><a href="#02-Flex容器的属性" class="headerlink" title="02.Flex容器的属性"></a>02.Flex容器的属性</h2><p>Flex容器共有6个属性：<br>    · flex-deriction<br>    · flex-wrap<br>    · flex-flow<br>    · jusytify-content<br>    · align-item<br>    · align-content</p>
+<h3 id="02-1-flex-deriction属性"><a href="#02-1-flex-deriction属性" class="headerlink" title="02.1 flex-deriction属性"></a>02.1 flex-deriction属性</h3><p>flex-deriction 属性决定主轴的方向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-deriction: row;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/flex%E5%B8%83%E5%B1%80/01.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-deriction: row-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/flex%E5%B8%83%E5%B1%80/02.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-deriction: column;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/flex%E5%B8%83%E5%B1%80/03.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-deriction: row-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/flex%E5%B8%83%E5%B1%80/04.png" alt></p>
+<h3 id="02-2-flex-wrap属性"><a href="#02-2-flex-wrap属性" class="headerlink" title="02.2 flex-wrap属性"></a>02.2 flex-wrap属性</h3><p>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-wrap: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/flex%E5%B8%83%E5%B1%80/05.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-wrap: wrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/flex%E5%B8%83%E5%B1%80/06.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-wrap: wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/image/flex%E5%B8%83%E5%B1%80/07.png" alt></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/25/flex布局/" data-id="ck28w4uis000388vf30tj1fgm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/27/grid布局/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          grid布局
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/16/Nginx入门笔记-二/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Nginx入门笔记（二）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Nginx/" style="font-size: 20px;">Nginx</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/27/grid布局/">grid布局</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/25/flex布局/">Flex布局</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/16/Nginx入门笔记-二/">Nginx入门笔记（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/15/Nginx入门笔记-一/">Nginx入门笔记（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/02/正则表达式/">正则表达式</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -5,15 +5,20 @@
   
 
   
-  <title>Hexo</title>
+  <title>Nginx入门笔记（一） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="01.Nginx环境准备这里我用的是腾讯云，首先用 yum 安装必要程序。 12yum -y install gcc gcc-c++ autoconf pcre-devel make automakeyum -y install wget httpd-tools vim  下载 Nginx 1yum install nginx  然后查询 Nginx 版本以确认是否下载成功。 1nginx -v">
+<meta name="keywords" content="Nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx入门笔记（一）">
+<meta property="og:url" content="http://yoursite.com/2019/10/15/Nginx入门笔记-一/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="01.Nginx环境准备这里我用的是腾讯云，首先用 yum 安装必要程序。 12yum -y install gcc gcc-c++ autoconf pcre-devel make automakeyum -y install wget httpd-tools vim  下载 Nginx 1yum install nginx  然后查询 Nginx 版本以确认是否下载成功。 1nginx -v">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-15T17:11:09.056Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Nginx入门笔记（一）">
+<meta name="twitter:description" content="01.Nginx环境准备这里我用的是腾讯云，首先用 yum 安装必要程序。 12yum -y install gcc gcc-c++ autoconf pcre-devel make automakeyum -y install wget httpd-tools vim  下载 Nginx 1yum install nginx  然后查询 Nginx 版本以确认是否下载成功。 1nginx -v">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,150 +65,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-grid布局" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/27/grid布局/" class="article-date">
-  <time datetime="2019-10-27T06:46:23.000Z" itemprop="datePublished">2019-10-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/27/grid布局/">grid布局</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/27/grid布局/" data-id="ck28w4uiv000588vf71ttcqa4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-flex布局" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/25/flex布局/" class="article-date">
-  <time datetime="2019-10-25T06:45:39.000Z" itemprop="datePublished">2019-10-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/25/flex布局/">Flex布局</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>以下内容主要参考阮一峰老师的<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="noopener">Flex 布局教程：语法篇</a></p>
-<h2 id="01-什么是Flex布局？"><a href="#01-什么是Flex布局？" class="headerlink" title="01.什么是Flex布局？"></a>01.什么是Flex布局？</h2><p>Flex 是 Flexible Box 的缩写，意为“弹性布局”，<br>任何一个容器都可以指定为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;box&quot;&gt;</span><br><span class="line">    &lt;div&gt;1&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;2&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;3&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;4&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;5&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;6&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">//css代码</span><br><span class="line">#box&#123;</span><br><span class="line">    display: flex;</span><br><span class="line">    width: 500px;</span><br><span class="line">    margin: 100px auto;</span><br><span class="line">    border: 2px solid black;</span><br><span class="line">    padding: 10px;</span><br><span class="line">    border-radius: 10px;</span><br><span class="line">&#125;</span><br><span class="line">#box div&#123;</span><br><span class="line">    width: 50px;</span><br><span class="line">    height: 50px;</span><br><span class="line">    background-color: aqua;</span><br><span class="line">    margin: 10px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    line-height: 50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/flex%E5%B8%83%E5%B1%80/01.png" alt></p>
-<h2 id="02-Flex容器的属性"><a href="#02-Flex容器的属性" class="headerlink" title="02.Flex容器的属性"></a>02.Flex容器的属性</h2><p>Flex容器共有6个属性：<br>    · flex-deriction<br>    · flex-wrap<br>    · flex-flow<br>    · jusytify-content<br>    · align-item<br>    · align-content</p>
-<h3 id="02-1-flex-deriction属性"><a href="#02-1-flex-deriction属性" class="headerlink" title="02.1 flex-deriction属性"></a>02.1 flex-deriction属性</h3><p>flex-deriction 属性决定主轴的方向</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-deriction: row;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/flex%E5%B8%83%E5%B1%80/01.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-deriction: row-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/flex%E5%B8%83%E5%B1%80/02.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-deriction: column;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/flex%E5%B8%83%E5%B1%80/03.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-deriction: row-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/flex%E5%B8%83%E5%B1%80/04.png" alt></p>
-<h3 id="02-2-flex-wrap属性"><a href="#02-2-flex-wrap属性" class="headerlink" title="02.2 flex-wrap属性"></a>02.2 flex-wrap属性</h3><p>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-wrap: nowrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/flex%E5%B8%83%E5%B1%80/05.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-wrap: wrap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/flex%E5%B8%83%E5%B1%80/06.png" alt></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;</span><br><span class="line">    flex-wrap: wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/image/flex%E5%B8%83%E5%B1%80/07.png" alt></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/25/flex布局/" data-id="ck28w4uis000388vf30tj1fgm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Nginx入门笔记-二" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/16/Nginx入门笔记-二/" class="article-date">
-  <time datetime="2019-10-15T17:09:46.000Z" itemprop="datePublished">2019-10-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/16/Nginx入门笔记-二/">Nginx入门笔记（二）</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/16/Nginx入门笔记-二/" data-id="ck28w4uiu000488vfza3w8lfg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Nginx入门笔记-一" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Nginx入门笔记-一" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/10/15/Nginx入门笔记-一/" class="article-date">
   <time datetime="2019-10-15T01:29:35.000Z" itemprop="datePublished">2019-10-15</time>
@@ -216,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/15/Nginx入门笔记-一/">Nginx入门笔记（一）</a>
+    <h1 class="article-title" itemprop="name">
+      Nginx入门笔记（一）
     </h1>
   
 
@@ -296,149 +158,28 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/02/正则表达式/" class="article-date">
-  <time datetime="2019-10-02T07:14:01.000Z" itemprop="datePublished">2019-10-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+    <a href="/2019/10/16/Nginx入门笔记-二/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/02/正则表达式/">正则表达式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是-RepExp-？"><a href="#什么是-RepExp-？" class="headerlink" title="什么是 RepExp ？"></a>什么是 RepExp ？</h3><p>RepExp 是正则表达式的缩写，通常用于解析，格式检查，替换等<br>JavaScript 中通过 new 关键词来创建 RegExp 对象，也可以通过直接量语法来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var test_1 = new RegExp(&quot;e&quot;);</span><br><span class="line">console.log(test_1);  //  /e/</span><br><span class="line">var test_2 = /e/;</span><br><span class="line">console.log(test_2);  //  /e/</span><br><span class="line">test_1 == test_2      //  false</span><br></pre></td></tr></table></figure>
-
-<h3 id="RepExp-对象的方法及应用"><a href="#RepExp-对象的方法及应用" class="headerlink" title="RepExp 对象的方法及应用"></a>RepExp 对象的方法及应用</h3><p>RepExp 对象有3个方法：test()、exec() 以及 compile()。<br>test() 方法用于检测目标字符串中是否存在指定值，并返回 true 或者 false</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var test_3 = /ll/;</span><br><span class="line">var arr_1 = &quot;hello&quot;;</span><br><span class="line">var arr_2 = &quot;world&quot;;</span><br><span class="line">console.log(test_3.test(arr_1));  //  true</span><br><span class="line">console.log(test_3.test(arr_2));  //  false</span><br></pre></td></tr></table></figure>
-
-<p>exec() 方法用于检测目标字符串中是否存在指定值，并返回被找到的值，若误匹配，则返回null</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var test_4 = /l/;</span><br><span class="line">var arr_3 = &quot;hello world&quot;;</span><br><span class="line">console.log(test_4.exec(arr_3));  //[&quot;l&quot;, index: 2, input: &quot;hello world&quot;, groups: undefined]</span><br></pre></td></tr></table></figure>
-
-<p>可以在正则表达式后加”i”(不区分大小写), “g”(全局匹配), “m”(多行模式)来说明匹配的规则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var test_4 = /L/ig;</span><br><span class="line">console.log(test_4.exec(arr_4))</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck28w4uix000788vfcraaj0gd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-测试文章" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/28/测试文章/" class="article-date">
-  <time datetime="2019-09-28T09:16:13.000Z" itemprop="datePublished">2019-09-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+          Nginx入门笔记（二）
         
+      </div>
+    </a>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/28/测试文章/">测试文章</a>
-    </h1>
   
+    <a href="/2019/10/02/正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">正则表达式</div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h3><p>这是一篇测试文章</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/测试文章/" data-id="ck28w4uiz000988vf0tw7ugjk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/09/28/hello-world/" class="article-date">
-  <time datetime="2019-09-28T04:00:38.641Z" itemprop="datePublished">2019-09-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/28/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/hello-world/" data-id="ck28w4uio000188vfvds4wgs5" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
