@@ -62,6 +62,66 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JS继承模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/20/JS继承模式/" class="article-date">
+  <time datetime="2019-12-20T03:46:35.000Z" itemprop="datePublished">2019-12-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/20/JS继承模式/">JS继承模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>实现类式继承(classical inheritance)的目标是通过构造函数 Child() 获取来自于另一个构造函数 Parent() 的属性，从而创建对象。<br>下面是定义两个构造函数 Parent() 和 Child() 的一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">//父构造函数</span><br><span class="line">function Parent (name) &#123;</span><br><span class="line">    this.name = name || &apos;Adam&apos;;</span><br><span class="line">    this.list = [1, 2, 3, 4];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//向该原型添加功能</span><br><span class="line">Parent.prototype.say = function () &#123;</span><br><span class="line">    return this.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//空白的子构造函数</span><br><span class="line">function Child (name) &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//通过自定义函数inherit，使Child继承Parent的属性</span><br><span class="line">inherit(Child, Parent);</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-默认继承（原型链）"><a href="#1-默认继承（原型链）" class="headerlink" title="1.默认继承（原型链）"></a>1.默认继承（原型链）</h2><p>第一种方法是使用Parent()构造函数创建一个对象，并将该对象赋值给Child()的原型</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function inherit (C, P) &#123;</span><br><span class="line">    C.prototype = new P();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里需要记住，原型属性 prototype 应该指向一个对象，而不是一个函数。因此它需要指向由父构造函数所创建的实例( new P() )，而不是指向构造函数本身。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var kid = new Child();</span><br><span class="line">kid.say()   //&quot;Adam&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="原型链的缺点"><a href="#原型链的缺点" class="headerlink" title="原型链的缺点"></a>原型链的缺点</h3><p>由于 包含引用类型值的原型属性 会被所有实例所共享，当其中一个实例改变该属性时，会导致原型属性的改变。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var kid_1 = new Child();</span><br><span class="line">var kid_2 = new Child();</span><br><span class="line"></span><br><span class="line">//当改变实例的基本类型值时</span><br><span class="line">console.log(kid_1.name);  //&quot;Adam&quot;</span><br><span class="line">kid_1.name = &quot;Bob&quot;;        </span><br><span class="line">console.log(kid_1.name);  //&quot;Bob&quot;</span><br><span class="line">console.log(kid_2.name);  //&quot;Adam&quot;</span><br><span class="line"></span><br><span class="line">//当改变实例的引用类型值时</span><br><span class="line">console.log(kid_1.list);  //[1, 2, 3, 4]</span><br><span class="line">kid_1.list.push(5);      </span><br><span class="line">console.log(kid_1.list);  //[1, 2, 3, 4, 5]</span><br><span class="line">console.log(kid_2.list);  //[1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure>
+
+<p>上面的例子创建了两个实例 kid_1 和 kid_2，当改变 kid_1 的引用类型属性 list 时，会导致另一个实例 kid_2 中 list 属性的改变。<br>这种继承方法另外一个问题就是它不支持将参数传递到子构造函数当中，而子构造函数又将参数传递到父构造函数当中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var kid = new Child(&apos;Seth&apos;);</span><br><span class="line">kid.say()   //&quot;Adam&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-借用构造函数"><a href="#2-借用构造函数" class="headerlink" title="2.借用构造函数"></a>2.借用构造函数</h2><p>这种方式解决了从子构造函数到父构造函数的参数传递问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function Parent(name) &#123;</span><br><span class="line">    this.name = name || &apos;Adam&apos;;</span><br><span class="line">    this.list = [1,2,3,4];</span><br><span class="line">&#125;</span><br><span class="line">Parent.prototype.say = function () &#123;</span><br><span class="line">    return this.name</span><br><span class="line">&#125;</span><br><span class="line">function Child(name) &#123;</span><br><span class="line">    Parent.apply(this, arguments);</span><br><span class="line">&#125;</span><br><span class="line">var kid = new Child(&quot;Tom&quot;); </span><br><span class="line">kid.name    //&quot;Tom&quot;</span><br><span class="line">kid.say     //undefined</span><br></pre></td></tr></table></figure>
+
+<p>因为此模式中根本没有使用 Child.prototype，所以 new Child 对象和 Parent 对象不再有链接。所以子构造函数的实例 kid 就获得了自身的属性 name，但从未继承过 say() 方法。<br><img src="/image/JS%E7%BB%A7%E6%89%BF%E6%A8%A1%E5%BC%8F/01.png" alt></p>
+<h3 id="通过借用构造函数实现多重继承"><a href="#通过借用构造函数实现多重继承" class="headerlink" title="通过借用构造函数实现多重继承"></a>通过借用构造函数实现多重继承</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function Cat () &#123;</span><br><span class="line">    this.legs = 4;</span><br><span class="line">    this.say = function() &#123;</span><br><span class="line">        return &quot;meaoww&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function Bird () &#123;</span><br><span class="line">    this.wing = 2;</span><br><span class="line">    this.fly = true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function CatBird (name) &#123;</span><br><span class="line">    this.name = name || &quot;catbird&quot;;</span><br><span class="line">    Cat.apply(this);</span><br><span class="line">    Bird.apply(this);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var cb = new CatBird(&quot;cb&quot;);</span><br><span class="line">console.log(cb);</span><br></pre></td></tr></table></figure>
+
+<p>下面图中可以看出 cb 实例既继承了 Cat 构造函数的属性，也同时继承的 Bird 构造函数的属性。<br><img src="/image/JS%E7%BB%A7%E6%89%BF%E6%A8%A1%E5%BC%8F/02.png" alt></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/12/20/JS继承模式/" data-id="ck4dm43vw0000ngvfkbqyav01" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-grid布局" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/10/27/grid布局/" class="article-date">
@@ -88,7 +148,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/27/grid布局/" data-id="ck28w4uiv000588vf71ttcqa4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/27/grid布局/" data-id="ck4dm43wi0009ngvfyvgla1zl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -153,7 +213,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/25/flex布局/" data-id="ck28w4uis000388vf30tj1fgm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/25/flex布局/" data-id="ck4dm43wc0005ngvfsdgqqn2u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -191,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/16/Nginx入门笔记-二/" data-id="ck28w4uiu000488vfza3w8lfg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/16/Nginx入门笔记-二/" data-id="ck4dm43wb0004ngvf32kz1fmn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
@@ -288,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/15/Nginx入门笔记-一/" data-id="ck28w4uih000088vf0t8b9ise" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/15/Nginx入门笔记-一/" data-id="ck4dm43w30001ngvfb3ilzly4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
@@ -338,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck28w4uix000788vfcraaj0gd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck4dm43we0006ngvfczfxbepy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -377,7 +437,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/测试文章/" data-id="ck28w4uiz000988vf0tw7ugjk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/28/测试文章/" data-id="ck4dm43wj000angvf70bkiarp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -428,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/hello-world/" data-id="ck28w4uio000188vfvds4wgs5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/28/hello-world/" data-id="ck4dm43w60002ngvf8turkc53" class="article-share-link">Share</a>
       
       
     </footer>
@@ -461,7 +521,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Nginx/" style="font-size: 20px;">Nginx</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
+      <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Nginx/" style="font-size: 20px;">Nginx</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
     </div>
   </div>
 
@@ -470,7 +530,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
     </div>
   </div>
 
@@ -481,6 +541,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/12/20/JS继承模式/">JS继承模式</a>
+          </li>
         
           <li>
             <a href="/2019/10/27/grid布局/">grid布局</a>
@@ -496,10 +560,6 @@
         
           <li>
             <a href="/2019/10/15/Nginx入门笔记-一/">Nginx入门笔记（一）</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/02/正则表达式/">正则表达式</a>
           </li>
         
       </ul>
