@@ -106,11 +106,16 @@
 <h3 id="通过借用构造函数实现多重继承"><a href="#通过借用构造函数实现多重继承" class="headerlink" title="通过借用构造函数实现多重继承"></a>通过借用构造函数实现多重继承</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function Cat () &#123;</span><br><span class="line">    this.legs = 4;</span><br><span class="line">    this.say = function() &#123;</span><br><span class="line">        return &quot;meaoww&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">function Bird () &#123;</span><br><span class="line">    this.wing = 2;</span><br><span class="line">    this.fly = true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function CatBird (name) &#123;</span><br><span class="line">    this.name = name || &quot;catbird&quot;;</span><br><span class="line">    Cat.apply(this);</span><br><span class="line">    Bird.apply(this);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var cb = new CatBird(&quot;cb&quot;);</span><br><span class="line">console.log(cb);</span><br></pre></td></tr></table></figure>
 
 <p>下面图中可以看出 cb 实例既继承了 Cat 构造函数的属性，也同时继承的 Bird 构造函数的属性。<br><img src="/image/JS%E7%BB%A7%E6%89%BF%E6%A8%A1%E5%BC%8F/02.png" alt></p>
+<h3 id="借用构造函数模式的缺点"><a href="#借用构造函数模式的缺点" class="headerlink" title="借用构造函数模式的缺点"></a>借用构造函数模式的缺点</h3><p>如前面所述，其问题在于无法从原型中继承任何东西，比如说 say() 方法。</p>
+<h2 id="3-组合式继承"><a href="#3-组合式继承" class="headerlink" title="3.组合式继承"></a>3.组合式继承</h2><p>这种方法是将前面两种方法组合到一起，从而发挥二者之长的一种继承模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function Parent(name) &#123;</span><br><span class="line">    this.name = name || &apos;Adam&apos;;</span><br><span class="line">    this.list = [1,2,3,4];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Parent.prototype.say = function () &#123;</span><br><span class="line">    return this.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function Child(name) &#123;</span><br><span class="line">    Parent.apply(this, arguments);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child.prototype = new Parent();</span><br><span class="line">var kid_1 = new Child(&quot;Tom&quot;);</span><br><span class="line">var kid_2 = new Child();</span><br><span class="line">kid_1.say();    //&quot;Tom&quot;</span><br><span class="line">kid_2.say();    //&quot;Adam&quot;</span><br><span class="line">delete kid_1.name;</span><br><span class="line">kid_1.say();    //&quot;Adam&quot;</span><br></pre></td></tr></table></figure>
+
+<p>从上面代码可以看出，say()方法可以正确的被继承，而且修改子实例属性时，不会影响父构造函数和其他子实例的属性。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/20/JS继承模式/" data-id="ck4dm43vw0000ngvfkbqyav01" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/20/JS继承模式/" data-id="ck4f4jb43000004vf191kyew8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -148,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/27/grid布局/" data-id="ck4dm43wi0009ngvfyvgla1zl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/27/grid布局/" data-id="ck4f4jb4p000c04vf28dv5b5p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -213,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/25/flex布局/" data-id="ck4dm43wc0005ngvfsdgqqn2u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/25/flex布局/" data-id="ck4f4jb4m000904vf4xlcwf7z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -251,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/16/Nginx入门笔记-二/" data-id="ck4dm43wb0004ngvf32kz1fmn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/16/Nginx入门笔记-二/" data-id="ck4f4jb4e000304vfckv0lwl7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
@@ -348,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/15/Nginx入门笔记-一/" data-id="ck4dm43w30001ngvfb3ilzly4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/15/Nginx入门笔记-一/" data-id="ck4f4jb4g000404vfo6pjqx1h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
@@ -398,7 +403,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck4dm43we0006ngvfczfxbepy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck4f4jb4k000804vf5klwxukq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -437,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/测试文章/" data-id="ck4dm43wj000angvf70bkiarp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/28/测试文章/" data-id="ck4f4jb4h000504vflgbsxwjz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -488,7 +493,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/hello-world/" data-id="ck4dm43w60002ngvf8turkc53" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/28/hello-world/" data-id="ck4f4jb4a000104vfqlakb4m4" class="article-share-link">Share</a>
       
       
     </footer>
