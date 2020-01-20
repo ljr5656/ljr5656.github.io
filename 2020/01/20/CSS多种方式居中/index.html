@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>CSS多种方式居中 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、水平居中1.行级元素让一个块级元素中的一个或多个行级元素水平居中,对父元素添加 text-align：center 属性 1234567891011html:    &amp;lt;div class=&amp;quot;parent_box&amp;quot;&amp;gt;        &amp;lt;span class=&amp;quot;child_box&amp;quot;&amp;gt;child_1&amp;lt;/span&amp;gt;">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS多种方式居中">
+<meta property="og:url" content="http://yoursite.com/2020/01/20/CSS多种方式居中/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、水平居中1.行级元素让一个块级元素中的一个或多个行级元素水平居中,对父元素添加 text-align：center 属性 1234567891011html:    &amp;lt;div class=&amp;quot;parent_box&amp;quot;&amp;gt;        &amp;lt;span class=&amp;quot;child_box&amp;quot;&amp;gt;child_1&amp;lt;/span&amp;gt;">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-20T07:06:30.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS多种方式居中">
+<meta name="twitter:description" content="一、水平居中1.行级元素让一个块级元素中的一个或多个行级元素水平居中,对父元素添加 text-align：center 属性 1234567891011html:    &amp;lt;div class=&amp;quot;parent_box&amp;quot;&amp;gt;        &amp;lt;span class=&amp;quot;child_box&amp;quot;&amp;gt;child_1&amp;lt;/span&amp;gt;">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-CSS多种方式居中" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/20/CSS多种方式居中/" class="article-date">
+  <time datetime="2020-01-20T03:18:30.000Z" itemprop="datePublished">2020-01-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CSS多种方式居中
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、水平居中"><a href="#一、水平居中" class="headerlink" title="一、水平居中"></a>一、水平居中</h2><h3 id="1-行级元素"><a href="#1-行级元素" class="headerlink" title="1.行级元素"></a>1.行级元素</h3><p>让一个块级元素中的一个或多个行级元素水平居中,对父元素添加 text-align：center 属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_1&lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_2&lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_3&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.parent_box &#123;</span><br><span class="line">  text-align: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-块级元素"><a href="#2-块级元素" class="headerlink" title="2.块级元素"></a>2.块级元素</h3><p>让一个块级元素中的一个 已知宽度 的块级元素水平居中（若不设置宽度，则会占满父级，就不需要居中了）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;child_box&quot;&gt;child&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.child_box &#123;</span><br><span class="line">  width: 100px;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>让一个块级元素中的一个或多个 未知宽度 的块级元素同行水平居中，使用 flex 布局</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;child_box&quot;&gt;child&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;child_box&quot;&gt;child&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;child_box&quot;&gt;child&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.parent_box &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、水平居中"><a href="#二、水平居中" class="headerlink" title="二、水平居中"></a>二、水平居中</h2><h3 id="1-行内元素"><a href="#1-行内元素" class="headerlink" title="1.行内元素"></a>1.行内元素</h3><h4 id="单行"><a href="#单行" class="headerlink" title="单行"></a>单行</h4><p>对父元素设置相同的上下padding</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_1&lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_2&lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_3&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.parent_box &#123;</span><br><span class="line">  padding-top: 10px;</span><br><span class="line">  padding-bottom: 10px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对子元素设置相同的 height 和 line-height 属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_1&lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_2&lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_3&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.child_box &#123;</span><br><span class="line">  height: 100px;</span><br><span class="line">  line-height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用flex布局</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_1&lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_2&lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_3&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.parent_box &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  align-items: center;</span><br><span class="line">  height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="多行"><a href="#多行" class="headerlink" title="多行"></a>多行</h4><p>使用flex布局</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_1&lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_2&lt;/span&gt;</span><br><span class="line">        &lt;span class=&quot;child_box&quot;&gt;child_3&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.parent_box &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-块级元素-1"><a href="#2-块级元素-1" class="headerlink" title="2.块级元素"></a>2.块级元素</h3><h4 id="已知元素宽度"><a href="#已知元素宽度" class="headerlink" title="已知元素宽度"></a>已知元素宽度</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;p class=&quot;child_box&quot;&gt;child_1&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.parent_box &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  height: 200px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.child_box &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  height: 100px;</span><br><span class="line">  margin-top: -50px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="未知元素宽度"><a href="#未知元素宽度" class="headerlink" title="未知元素宽度"></a>未知元素宽度</h4><p>通过 transfrom 实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;p class=&quot;child_box&quot;&gt;child_1&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.parent_box &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  height: 200px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.child_box &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  transform: translateY(-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;p class=&quot;child_box&quot;&gt;child_1&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.parent_box &#123;</span><br><span class="line">  height: 200px;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">  justify-content: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="三、垂直水平居中"><a href="#三、垂直水平居中" class="headerlink" title="三、垂直水平居中"></a>三、垂直水平居中</h2><h3 id="元素有固定的宽和高"><a href="#元素有固定的宽和高" class="headerlink" title="元素有固定的宽和高"></a>元素有固定的宽和高</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;p class=&quot;child_box&quot;&gt;child_1&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.parent_box &#123;</span><br><span class="line">  height: 200px;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.child_box &#123;  </span><br><span class="line">  height: 100px;</span><br><span class="line">  width: 100px;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  left: 50%;</span><br><span class="line">  margin: -50px 0 0 -100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="元素没有固定的宽和高"><a href="#元素没有固定的宽和高" class="headerlink" title="元素没有固定的宽和高"></a>元素没有固定的宽和高</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;p class=&quot;child_box&quot;&gt;child_1&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.parent_box &#123;</span><br><span class="line">  height: 200px;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.child_box &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  left: 50%;</span><br><span class="line">  transform: translate(-50%, -50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex布局（可以有多个子元素）"><a href="#flex布局（可以有多个子元素）" class="headerlink" title="flex布局（可以有多个子元素）"></a>flex布局（可以有多个子元素）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">html:</span><br><span class="line">    &lt;div class=&quot;parent_box&quot;&gt;</span><br><span class="line">        &lt;p class=&quot;child_box&quot;&gt;child_1&lt;/p&gt;</span><br><span class="line">        &lt;p class=&quot;child_box&quot;&gt;child_2&lt;/p&gt;</span><br><span class="line">        &lt;p class=&quot;child_box&quot;&gt;child_3&lt;/p&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">css:</span><br><span class="line">.parent_box &#123;</span><br><span class="line">  height: 200px;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  align-items: center; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/20/CSS多种方式居中/" data-id="ck5lvs8xi000040vf9alhlpwv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/12/25/MongoDB入门笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MongoDB入门笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS/">CSS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Nginx/" style="font-size: 20px;">Nginx</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/01/20/CSS多种方式居中/">CSS多种方式居中</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/25/MongoDB入门笔记/">MongoDB入门笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2019/12/20/JS继承模式/">JS继承模式</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/27/grid布局/">grid布局</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/25/flex布局/">Flex布局</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
