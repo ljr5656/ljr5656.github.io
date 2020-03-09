@@ -5,20 +5,20 @@
   
 
   
-  <title>正则表达式 | Hexo</title>
+  <title>手写代码——call，apply，bind | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是 RepExp ？RepExp 是正则表达式的缩写，通常用于解析，格式检查，替换等JavaScript 中通过 new 关键词来创建 RegExp 对象，也可以通过直接量语法来创建 12345var test_1 = new RegExp(&amp;quot;e&amp;quot;);console.log(test_1);  //  /e/var test_2 = /e/;console.log(test">
+  <meta name="description" content="手写call123456789101112Function.prototype.Mycall  = function (context, ...arg) &amp;#123;  if(!context) &amp;#123;    context = typeof window === &amp;apos;undefined&amp;apos;? global : window;   &amp;#125;else &amp;#123;    c">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式">
-<meta property="og:url" content="http://yoursite.com/2019/10/02/正则表达式/index.html">
+<meta property="og:title" content="手写代码——call，apply，bind">
+<meta property="og:url" content="http://yoursite.com/2020/03/10/手写代码——call，apply，bind/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="什么是 RepExp ？RepExp 是正则表达式的缩写，通常用于解析，格式检查，替换等JavaScript 中通过 new 关键词来创建 RegExp 对象，也可以通过直接量语法来创建 12345var test_1 = new RegExp(&amp;quot;e&amp;quot;);console.log(test_1);  //  /e/var test_2 = /e/;console.log(test">
+<meta property="og:description" content="手写call123456789101112Function.prototype.Mycall  = function (context, ...arg) &amp;#123;  if(!context) &amp;#123;    context = typeof window === &amp;apos;undefined&amp;apos;? global : window;   &amp;#125;else &amp;#123;    c">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-02T08:01:07.344Z">
+<meta property="og:updated_time" content="2020-03-09T17:15:28.605Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="什么是 RepExp ？RepExp 是正则表达式的缩写，通常用于解析，格式检查，替换等JavaScript 中通过 new 关键词来创建 RegExp 对象，也可以通过直接量语法来创建 12345var test_1 = new RegExp(&amp;quot;e&amp;quot;);console.log(test_1);  //  /e/var test_2 = /e/;console.log(test">
+<meta name="twitter:title" content="手写代码——call，apply，bind">
+<meta name="twitter:description" content="手写call123456789101112Function.prototype.Mycall  = function (context, ...arg) &amp;#123;  if(!context) &amp;#123;    context = typeof window === &amp;apos;undefined&amp;apos;? global : window;   &amp;#125;else &amp;#123;    c">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-手写代码——call，apply，bind" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/10/02/正则表达式/" class="article-date">
-  <time datetime="2019-10-02T07:14:01.000Z" itemprop="datePublished">2019-10-02</time>
+    <a href="/2020/03/10/手写代码——call，apply，bind/" class="article-date">
+  <time datetime="2020-03-09T16:13:21.000Z" itemprop="datePublished">2020-03-10</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      正则表达式
+      手写代码——call，apply，bind
     </h1>
   
 
@@ -87,23 +87,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="什么是-RepExp-？"><a href="#什么是-RepExp-？" class="headerlink" title="什么是 RepExp ？"></a>什么是 RepExp ？</h3><p>RepExp 是正则表达式的缩写，通常用于解析，格式检查，替换等<br>JavaScript 中通过 new 关键词来创建 RegExp 对象，也可以通过直接量语法来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var test_1 = new RegExp(&quot;e&quot;);</span><br><span class="line">console.log(test_1);  //  /e/</span><br><span class="line">var test_2 = /e/;</span><br><span class="line">console.log(test_2);  //  /e/</span><br><span class="line">test_1 == test_2      //  false</span><br></pre></td></tr></table></figure>
+        <h2 id="手写call"><a href="#手写call" class="headerlink" title="手写call"></a>手写call</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.Mycall  = function (context, ...arg) &#123;</span><br><span class="line">  if(!context) &#123;</span><br><span class="line">    context = typeof window === &apos;undefined&apos;? global : window; </span><br><span class="line">  &#125;else &#123;</span><br><span class="line">    context = new Object(context);</span><br><span class="line">  &#125;</span><br><span class="line">  const key = Symbol();</span><br><span class="line">  context[key] = this;</span><br><span class="line">  const result = context[key](...arg);</span><br><span class="line">  delete context[key];</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="RepExp-对象的方法及应用"><a href="#RepExp-对象的方法及应用" class="headerlink" title="RepExp 对象的方法及应用"></a>RepExp 对象的方法及应用</h3><p>RepExp 对象有3个方法：test()、exec() 以及 compile()。<br>test() 方法用于检测目标字符串中是否存在指定值，并返回 true 或者 false</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var test_3 = /ll/;</span><br><span class="line">var arr_1 = &quot;hello&quot;;</span><br><span class="line">var arr_2 = &quot;world&quot;;</span><br><span class="line">console.log(test_3.test(arr_1));  //  true</span><br><span class="line">console.log(test_3.test(arr_2));  //  false</span><br></pre></td></tr></table></figure>
-
-<p>exec() 方法用于检测目标字符串中是否存在指定值，并返回被找到的值，若误匹配，则返回null</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var test_4 = /l/;</span><br><span class="line">var arr_3 = &quot;hello world&quot;;</span><br><span class="line">console.log(test_4.exec(arr_3));  //[&quot;l&quot;, index: 2, input: &quot;hello world&quot;, groups: undefined]</span><br></pre></td></tr></table></figure>
-
-<p>可以在正则表达式后加”i”(不区分大小写), “g”(全局匹配), “m”(多行模式)来说明匹配的规则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var test_4 = /L/ig;</span><br><span class="line">console.log(test_4.exec(arr_4))</span><br></pre></td></tr></table></figure>
-
+<p>1.首先判断第一个参数是否为 <code>null</code> 或 <code>undefined</code> ；<br>2.为了避免函数名与上下文（<code>context</code>）冲突，这里使用 <code>Symbol()</code> 作为唯一值；<br>3.将传入参数（<code>...arg</code>）的函数作为上下文（<code>context</code>）的属性执行；<br>4.在函数执行完成之后，删除该属性；<br>5.返回结果；</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck7ko2ct80008j4vfkdmngvfz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/10/手写代码——call，apply，bind/" data-id="ck7ko2ct20004j4vftfivrlab" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -114,19 +105,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/10/15/Nginx入门笔记-一/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Nginx入门笔记（一）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/28/测试文章/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/02/09/Linux上的MySQL基本命令/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">测试文章</div>
+      <div class="article-nav-title">Linux上的MySQL基本命令</div>
     </a>
   
 </nav>
