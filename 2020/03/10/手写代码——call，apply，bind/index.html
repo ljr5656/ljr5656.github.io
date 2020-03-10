@@ -7,18 +7,18 @@
   
   <title>手写代码——call，apply，bind | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="手写call123456789101112Function.prototype.Mycall  = function (context, ...arg) &amp;#123;  if(!context) &amp;#123;    context = typeof window === &amp;apos;undefined&amp;apos;? global : window;   &amp;#125;else &amp;#123;    c">
+  <meta name="description" content="手写 call123456789101112Function.prototype.Mycall  = function (context, ...arg) &amp;#123;  if(!context) &amp;#123;    context = typeof window === &amp;apos;undefined&amp;apos;? global : window;  &amp;#125;else &amp;#123;    c">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="手写代码——call，apply，bind">
 <meta property="og:url" content="http://yoursite.com/2020/03/10/手写代码——call，apply，bind/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="手写call123456789101112Function.prototype.Mycall  = function (context, ...arg) &amp;#123;  if(!context) &amp;#123;    context = typeof window === &amp;apos;undefined&amp;apos;? global : window;   &amp;#125;else &amp;#123;    c">
+<meta property="og:description" content="手写 call123456789101112Function.prototype.Mycall  = function (context, ...arg) &amp;#123;  if(!context) &amp;#123;    context = typeof window === &amp;apos;undefined&amp;apos;? global : window;  &amp;#125;else &amp;#123;    c">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-09T17:15:28.605Z">
+<meta property="og:updated_time" content="2020-03-10T11:41:28.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="手写代码——call，apply，bind">
-<meta name="twitter:description" content="手写call123456789101112Function.prototype.Mycall  = function (context, ...arg) &amp;#123;  if(!context) &amp;#123;    context = typeof window === &amp;apos;undefined&amp;apos;? global : window;   &amp;#125;else &amp;#123;    c">
+<meta name="twitter:description" content="手写 call123456789101112Function.prototype.Mycall  = function (context, ...arg) &amp;#123;  if(!context) &amp;#123;    context = typeof window === &amp;apos;undefined&amp;apos;? global : window;  &amp;#125;else &amp;#123;    c">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -87,14 +87,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="手写call"><a href="#手写call" class="headerlink" title="手写call"></a>手写call</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.Mycall  = function (context, ...arg) &#123;</span><br><span class="line">  if(!context) &#123;</span><br><span class="line">    context = typeof window === &apos;undefined&apos;? global : window; </span><br><span class="line">  &#125;else &#123;</span><br><span class="line">    context = new Object(context);</span><br><span class="line">  &#125;</span><br><span class="line">  const key = Symbol();</span><br><span class="line">  context[key] = this;</span><br><span class="line">  const result = context[key](...arg);</span><br><span class="line">  delete context[key];</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="手写-call"><a href="#手写-call" class="headerlink" title="手写 call"></a>手写 call</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.Mycall  = function (context, ...arg) &#123;</span><br><span class="line">  if(!context) &#123;</span><br><span class="line">    context = typeof window === &apos;undefined&apos;? global : window;</span><br><span class="line">  &#125;else &#123;</span><br><span class="line">    context = new Object(context);</span><br><span class="line">  &#125;</span><br><span class="line">  const key = Symbol();</span><br><span class="line">  context[key] = this;</span><br><span class="line">  const result = context[key](...arg);</span><br><span class="line">  delete context[key];</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>1.首先判断第一个参数是否为 <code>null</code> 或 <code>undefined</code> ；<br>2.为了避免函数名与上下文（<code>context</code>）冲突，这里使用 <code>Symbol()</code> 作为唯一值；<br>3.将传入参数（<code>...arg</code>）的函数作为上下文（<code>context</code>）的属性执行；<br>4.在函数执行完成之后，删除该属性；<br>5.返回结果；</p>
+<h2 id="手写-apply"><a href="#手写-apply" class="headerlink" title="手写 apply"></a>手写 apply</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.myApply = function(context, arg) &#123;</span><br><span class="line">  if(!context) &#123;</span><br><span class="line">    context = typeof window === &apos;undefined&apos; ? global : window;</span><br><span class="line">  &#125;else &#123;</span><br><span class="line">    context = new Object(context);</span><br><span class="line">  &#125;</span><br><span class="line">  const key = Symbol();</span><br><span class="line">  context[key] = this;</span><br><span class="line">  const res = arg ? context[key](...arg) : context[key]();</span><br><span class="line">  delete context[key];</span><br><span class="line">  return res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><code>myApply</code> 前半部分与 <code>myCall</code> 相同，不同的地方在于传参的形式，<code>apply</code> 第二个参数应该是一个数组或类数组。</p>
+<h2 id="手写bind"><a href="#手写bind" class="headerlink" title="手写bind"></a>手写bind</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/10/手写代码——call，apply，bind/" data-id="ck7ko2ct20004j4vftfivrlab" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/10/手写代码——call，apply，bind/" data-id="ck7ltlmn4000b8ovfzgn7p1t3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>

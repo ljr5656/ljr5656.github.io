@@ -84,14 +84,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="手写call"><a href="#手写call" class="headerlink" title="手写call"></a>手写call</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.Mycall  = function (context, ...arg) &#123;</span><br><span class="line">  if(!context) &#123;</span><br><span class="line">    context = typeof window === &apos;undefined&apos;? global : window; </span><br><span class="line">  &#125;else &#123;</span><br><span class="line">    context = new Object(context);</span><br><span class="line">  &#125;</span><br><span class="line">  const key = Symbol();</span><br><span class="line">  context[key] = this;</span><br><span class="line">  const result = context[key](...arg);</span><br><span class="line">  delete context[key];</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="手写-call"><a href="#手写-call" class="headerlink" title="手写 call"></a>手写 call</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.Mycall  = function (context, ...arg) &#123;</span><br><span class="line">  if(!context) &#123;</span><br><span class="line">    context = typeof window === &apos;undefined&apos;? global : window;</span><br><span class="line">  &#125;else &#123;</span><br><span class="line">    context = new Object(context);</span><br><span class="line">  &#125;</span><br><span class="line">  const key = Symbol();</span><br><span class="line">  context[key] = this;</span><br><span class="line">  const result = context[key](...arg);</span><br><span class="line">  delete context[key];</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>1.首先判断第一个参数是否为 <code>null</code> 或 <code>undefined</code> ；<br>2.为了避免函数名与上下文（<code>context</code>）冲突，这里使用 <code>Symbol()</code> 作为唯一值；<br>3.将传入参数（<code>...arg</code>）的函数作为上下文（<code>context</code>）的属性执行；<br>4.在函数执行完成之后，删除该属性；<br>5.返回结果；</p>
+<h2 id="手写-apply"><a href="#手写-apply" class="headerlink" title="手写 apply"></a>手写 apply</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.myApply = function(context, arg) &#123;</span><br><span class="line">  if(!context) &#123;</span><br><span class="line">    context = typeof window === &apos;undefined&apos; ? global : window;</span><br><span class="line">  &#125;else &#123;</span><br><span class="line">    context = new Object(context);</span><br><span class="line">  &#125;</span><br><span class="line">  const key = Symbol();</span><br><span class="line">  context[key] = this;</span><br><span class="line">  const res = arg ? context[key](...arg) : context[key]();</span><br><span class="line">  delete context[key];</span><br><span class="line">  return res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><code>myApply</code> 前半部分与 <code>myCall</code> 相同，不同的地方在于传参的形式，<code>apply</code> 第二个参数应该是一个数组或类数组。</p>
+<h2 id="手写bind"><a href="#手写bind" class="headerlink" title="手写bind"></a>手写bind</h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/10/手写代码——call，apply，bind/" data-id="ck7ko2ct20004j4vftfivrlab" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/10/手写代码——call，apply，bind/" data-id="ck7ltlmn4000b8ovfzgn7p1t3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -139,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/09/Linux上的MySQL基本命令/" data-id="ck7ko2csv0001j4vfxl03zm67" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/02/09/Linux上的MySQL基本命令/" data-id="ck7ltlmmo00018ovfdislvpje" class="article-share-link">Share</a>
       
       
     </footer>
@@ -207,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/20/CSS多种方式居中/" data-id="ck7ko2csq0000j4vfyc83cybt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/01/20/CSS多种方式居中/" data-id="ck7ltlmmt00038ovfrmq0imco" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
@@ -272,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/20/JS继承模式/" data-id="ck7ko2cte000dj4vfpbkrg5xn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/20/JS继承模式/" data-id="ck7ltlmmi00008ovfd320yg18" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -339,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/25/flex布局/" data-id="ck7ko2ct00003j4vfp2v1znb3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/25/flex布局/" data-id="ck7ltlmmw00058ovf98dk1gbk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -377,7 +380,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/16/Nginx入门笔记-二/" data-id="ck7ko2ct40005j4vfilfm7nxu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/16/Nginx入门笔记-二/" data-id="ck7ltlmn000088ovf5nyu7iot" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
@@ -474,7 +477,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/15/Nginx入门笔记-一/" data-id="ck7ko2ctc000bj4vf9e922omf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/15/Nginx入门笔记-一/" data-id="ck7ltlmmv00048ovf8u4urtvo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
@@ -524,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck7ko2ct80008j4vfkdmngvfz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck7ltlmn6000d8ovfnjiil372" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -563,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/测试文章/" data-id="ck7ko2cti000gj4vfbbrajlos" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/28/测试文章/" data-id="ck7ltlmn100098ovfrz2pvye9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -614,7 +617,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/hello-world/" data-id="ck7ko2cta0009j4vfuntl2vhx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/28/hello-world/" data-id="ck7ltlmn9000g8ovfikqh1id5" class="article-share-link">Share</a>
       
       
     </footer>
