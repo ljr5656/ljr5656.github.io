@@ -5,20 +5,20 @@
   
 
   
-  <title>正则表达式 | Hexo</title>
+  <title>读书笔记——《JavaScript模式》 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是 RepExp ？RepExp 是正则表达式的缩写，通常用于解析，格式检查，替换等JavaScript 中通过 new 关键词来创建 RegExp 对象，也可以通过直接量语法来创建 12345var test_1 = new RegExp(&amp;quot;e&amp;quot;);console.log(test_1);  //  /e/var test_2 = /e/;console.log(test">
+  <meta name="description" content="Curry化Curry化函数的基本方法是；使用一个闭包返回一个新的函数 123456789101112131415161718192021222324//add函数function add(x, y) &amp;#123;  return x + y&amp;#125;//测试add(1,2)  //输出 3// curry化后的add函数function curriedAdd(x,y) &amp;#123;  var">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="正则表达式">
-<meta property="og:url" content="http://yoursite.com/2019/10/02/正则表达式/index.html">
+<meta property="og:title" content="读书笔记——《JavaScript模式》">
+<meta property="og:url" content="http://yoursite.com/2020/03/25/读书笔记——《JavaScript模式》/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="什么是 RepExp ？RepExp 是正则表达式的缩写，通常用于解析，格式检查，替换等JavaScript 中通过 new 关键词来创建 RegExp 对象，也可以通过直接量语法来创建 12345var test_1 = new RegExp(&amp;quot;e&amp;quot;);console.log(test_1);  //  /e/var test_2 = /e/;console.log(test">
+<meta property="og:description" content="Curry化Curry化函数的基本方法是；使用一个闭包返回一个新的函数 123456789101112131415161718192021222324//add函数function add(x, y) &amp;#123;  return x + y&amp;#125;//测试add(1,2)  //输出 3// curry化后的add函数function curriedAdd(x,y) &amp;#123;  var">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-02T08:01:07.344Z">
+<meta property="og:updated_time" content="2020-03-25T06:06:33.723Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="正则表达式">
-<meta name="twitter:description" content="什么是 RepExp ？RepExp 是正则表达式的缩写，通常用于解析，格式检查，替换等JavaScript 中通过 new 关键词来创建 RegExp 对象，也可以通过直接量语法来创建 12345var test_1 = new RegExp(&amp;quot;e&amp;quot;);console.log(test_1);  //  /e/var test_2 = /e/;console.log(test">
+<meta name="twitter:title" content="读书笔记——《JavaScript模式》">
+<meta name="twitter:description" content="Curry化Curry化函数的基本方法是；使用一个闭包返回一个新的函数 123456789101112131415161718192021222324//add函数function add(x, y) &amp;#123;  return x + y&amp;#125;//测试add(1,2)  //输出 3// curry化后的add函数function curriedAdd(x,y) &amp;#123;  var">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-读书笔记——《JavaScript模式》" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/10/02/正则表达式/" class="article-date">
-  <time datetime="2019-10-02T07:14:01.000Z" itemprop="datePublished">2019-10-02</time>
+    <a href="/2020/03/25/读书笔记——《JavaScript模式》/" class="article-date">
+  <time datetime="2020-03-25T05:22:10.000Z" itemprop="datePublished">2020-03-25</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      正则表达式
+      读书笔记——《JavaScript模式》
     </h1>
   
 
@@ -87,23 +87,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="什么是-RepExp-？"><a href="#什么是-RepExp-？" class="headerlink" title="什么是 RepExp ？"></a>什么是 RepExp ？</h3><p>RepExp 是正则表达式的缩写，通常用于解析，格式检查，替换等<br>JavaScript 中通过 new 关键词来创建 RegExp 对象，也可以通过直接量语法来创建</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var test_1 = new RegExp(&quot;e&quot;);</span><br><span class="line">console.log(test_1);  //  /e/</span><br><span class="line">var test_2 = /e/;</span><br><span class="line">console.log(test_2);  //  /e/</span><br><span class="line">test_1 == test_2      //  false</span><br></pre></td></tr></table></figure>
+        <h2 id="Curry化"><a href="#Curry化" class="headerlink" title="Curry化"></a>Curry化</h2><p>Curry化函数的基本方法是；使用一个闭包返回一个新的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//add函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line">add(<span class="number">1</span>,<span class="number">2</span>)  <span class="comment">//输出 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// curry化后的add函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curriedAdd</span>(<span class="params">x,y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> oldX = x, oldY = y;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> oldY === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">newY</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> oldX + newY</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> x + y</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line">curryAdd(<span class="number">1</span>,<span class="number">2</span>)   <span class="comment">//输出 3</span></span><br><span class="line">curryAdd(<span class="number">1</span>)(<span class="number">2</span>)  <span class="comment">//输出 3</span></span><br><span class="line"><span class="keyword">typeof</span> curriedAdd(<span class="number">1</span>)  <span class="comment">//输出 "function"</span></span><br><span class="line"><span class="comment">//创建并储存一个新函数</span></span><br><span class="line"><span class="keyword">var</span> add2000 = add(<span class="number">2000</span>);</span><br><span class="line">add2000(<span class="number">20</span>)     <span class="comment">//输出 2020</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="RepExp-对象的方法及应用"><a href="#RepExp-对象的方法及应用" class="headerlink" title="RepExp 对象的方法及应用"></a>RepExp 对象的方法及应用</h3><p>RepExp 对象有3个方法：test()、exec() 以及 compile()。<br>test() 方法用于检测目标字符串中是否存在指定值，并返回 true 或者 false</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var test_3 = /ll/;</span><br><span class="line">var arr_1 = &quot;hello&quot;;</span><br><span class="line">var arr_2 = &quot;world&quot;;</span><br><span class="line">console.log(test_3.test(arr_1));  //  true</span><br><span class="line">console.log(test_3.test(arr_2));  //  false</span><br></pre></td></tr></table></figure>
-
-<p>exec() 方法用于检测目标字符串中是否存在指定值，并返回被找到的值，若误匹配，则返回null</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var test_4 = /l/;</span><br><span class="line">var arr_3 = &quot;hello world&quot;;</span><br><span class="line">console.log(test_4.exec(arr_3));  //[&quot;l&quot;, index: 2, input: &quot;hello world&quot;, groups: undefined]</span><br></pre></td></tr></table></figure>
-
-<p>可以在正则表达式后加”i”(不区分大小写), “g”(全局匹配), “m”(多行模式)来说明匹配的规则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var test_4 = /L/ig;</span><br><span class="line">console.log(test_4.exec(arr_4))</span><br></pre></td></tr></table></figure>
+<p>0</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curry</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arg = </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck86vuezu000rx0vf2uoec3r3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/25/读书笔记——《JavaScript模式》/" data-id="ck86vuezd000mx0vf32anr1of" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -114,19 +108,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/10/15/Nginx入门笔记-一/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Nginx入门笔记（一）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/28/测试文章/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/03/24/春招面试题（CSS篇）/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">测试文章</div>
+      <div class="article-nav-title">春招面试题（CSS篇）</div>
     </a>
   
 </nav>

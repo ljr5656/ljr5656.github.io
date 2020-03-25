@@ -62,6 +62,103 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Nginx入门笔记-一" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/15/Nginx入门笔记-一/" class="article-date">
+  <time datetime="2019-10-15T01:29:35.000Z" itemprop="datePublished">2019-10-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/15/Nginx入门笔记-一/">Nginx入门笔记（一）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="01-Nginx环境准备"><a href="#01-Nginx环境准备" class="headerlink" title="01.Nginx环境准备"></a>01.Nginx环境准备</h2><p>这里我用的是腾讯云，首先用 yum 安装必要程序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install gcc gcc-c++ autoconf pcre-devel make automake</span><br><span class="line">yum -y install wget httpd-tools vim</span><br></pre></td></tr></table></figure>
+
+<p>下载 Nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx</span><br></pre></td></tr></table></figure>
+
+<p>然后查询 Nginx 版本以确认是否下载成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -v</span><br></pre></td></tr></table></figure>
+
+<p>如果返回版本号，就说明下载成功了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx version: nginx/1.16.1</span><br></pre></td></tr></table></figure>
+
+<h2 id="02-Nignx配置文件"><a href="#02-Nignx配置文件" class="headerlink" title="02.Nignx配置文件"></a>02.Nignx配置文件</h2><p>在使用yum安装完Nginx后，需要知道系统中多了那些文件，它们都安装到了那里。可以使用下面的命令进行查看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ql nginx</span><br></pre></td></tr></table></figure>
+
+<p>rpm 是linux的rpm包管理工具，-q 代表询问模式，-l 代表返回列表，这样我们就可以找到nginx的所有安装位置了。</p>
+<h3 id="nginx-conf文件解读"><a href="#nginx-conf文件解读" class="headerlink" title="nginx.conf文件解读"></a>nginx.conf文件解读</h3><p>nginx.conf 文件是Nginx总配置文件，在我们搭建服务器时经常调整的文件。<br>进入etc/nginx目录下，然后用vim进行打开</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/nginx</span><br><span class="line">vim nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>下面是文件的详细注释</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">user  nginx;  //运行用户，默认为nginx，可以不进行设置</span><br><span class="line">worker_processes  1;  //Nginx进程，一般设置为和CPU核数一样</span><br><span class="line"></span><br><span class="line">error_log  /var/log/nginx/error.log warn;  //错误日志存放的目录</span><br><span class="line">pid        /var/run/nginx.pid;  //进程pid存放的位置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;  //单个后台进程的最大并发数</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       /etc/nginx/mime.types;  //文件扩展名与类型映射表</span><br><span class="line">    default_type  application/octet-stream;  //默认文件类型</span><br><span class="line">    //设置日志模式</span><br><span class="line">    log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</span><br><span class="line">                      &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</span><br><span class="line">                      &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</span><br><span class="line"></span><br><span class="line">    access_log  /var/log/nginx/access.log  main;  //nginx访问日志存放位置</span><br><span class="line"></span><br><span class="line">    sendfile        on;  //开启高效传输模式</span><br><span class="line">    #tcp_nopush     on;  //减少网络报文段数量</span><br><span class="line"></span><br><span class="line">    keepalive_timeout  65;  //保持连接的时间，也叫超时时间</span><br><span class="line"></span><br><span class="line">    #gzip  on;  //开启gzip解压缩</span><br><span class="line"></span><br><span class="line">    include /etc/nginx/conf.d/*.conf;  //包含的子配置项位置和文件</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>default.conf 配置项讲解：我们看到最后有一个子文件的配置项，那我们打开这个include子文件配置项看一下里边都有些什么内容。<br>进入conf.d目录，然后使用vim default.conf进行查看。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/ngins/conf.g</span><br><span class="line">vim default.conf</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;    //配置监听端口</span><br><span class="line">    server_name  localhost;     //配置域名</span><br><span class="line"></span><br><span class="line">    #charset koi8-r;</span><br><span class="line">    #access_log  /var/log/nginx/host.access.log  main;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;   //服务默认启动目录</span><br><span class="line">        index  index.html index.htm;    //默认访问文件</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    #error_page  404              /404.html;    //配置404页面</span><br><span class="line">    # redirect server error pages to the static page /50x.html</span><br><span class="line">    #</span><br><span class="line">    error_page   500 502 503 504  /50x.html;    //错误状态码的显示页面，配置后需要重启</span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    # proxy the PHP scripts to Apache listening on 127.0.0.1:80</span><br><span class="line">    #</span><br><span class="line">    #location ~ \.php$ &#123;</span><br><span class="line">    #    proxy_pass   http://127.0.0.1;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line">    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span><br><span class="line">    #</span><br><span class="line">    #location ~ \.php$ &#123;</span><br><span class="line">    #    root           html;</span><br><span class="line">    #    fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">    #    fastcgi_index  index.php;</span><br><span class="line">    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span><br><span class="line">    #    include        fastcgi_params;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line">    # deny access to .htaccess files, if Apache&apos;s document root</span><br><span class="line">    # concurs with nginx&apos;s one</span><br><span class="line">    #</span><br><span class="line">    #location ~ /\.ht &#123;</span><br><span class="line">    #    deny  all;</span><br><span class="line">    #&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>了解了配置文件后，我们知道我们的服务目录在 /usr/share/nginx/html 下，可以使用命令进入，并查看已有文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/nginx/html</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
+
+<p>可以看到当前目录下有两个文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">50x.html  index.html</span><br></pre></td></tr></table></figure>
+
+<h2 id="03Nginx基本命令"><a href="#03Nginx基本命令" class="headerlink" title="03Nginx基本命令"></a>03Nginx基本命令</h2><h3 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h3><p>Nginx直接启动（在CentOS7.4版本）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx</span><br></pre></td></tr></table></figure>
+
+<p>使用systemtcl命令启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start nginx.service</span><br></pre></td></tr></table></figure>
+
+<p>输入命令后没有任何提示，因此我们需要查询服务器的运行状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep nginx</span><br></pre></td></tr></table></figure>
+
+<p>如果成功启动，我们会看到以下字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root       687  0.0  0.0 112708   980 pts/0    R+   12:41   0:00 grep --color=auto nginx</span><br><span class="line">root     32604  0.0  0.0  46424   980 ?        Ss   12:36   0:00 nginx: master process nginx</span><br><span class="line">nginx    32605  0.0  0.2  48920  2264 ?        S    12:36   0:00 nginx: worker process</span><br></pre></td></tr></table></figure>
+
+<h3 id="停止命令"><a href="#停止命令" class="headerlink" title="停止命令"></a>停止命令</h3><p>立即停止服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx  -s stop  //这种方法比较强硬，无论进程是否在工作，都直接停止进程</span><br></pre></td></tr></table></figure>
+
+<p>从容停止服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s quit   //这种方法较stop相比就比较温和一些了，需要进程完成当前工作后再停止</span><br></pre></td></tr></table></figure>
+
+<p>killall 方法杀死进程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall nginx   //这种方法也是比较野蛮的，我们直接杀死进程，但是在上面使用没有效果时，我们用这种方法还是比较好的</span><br></pre></td></tr></table></figure>
+
+<p>systemctl 停止</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop nginx.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启-Nginx-服务"><a href="#重启-Nginx-服务" class="headerlink" title="重启 Nginx 服务"></a>重启 Nginx 服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart nginx.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="重新载入配置文件"><a href="#重新载入配置文件" class="headerlink" title="重新载入配置文件"></a>重新载入配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/15/Nginx入门笔记-一/" data-id="ck86vueyx0008x0vf1pi5y3w1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-正则表达式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/10/02/正则表达式/" class="article-date">
@@ -100,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck862swna000musvff953tfan" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/02/正则表达式/" data-id="ck86vuezu000rx0vf2uoec3r3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -139,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/测试文章/" data-id="ck862swn8000kusvf9fwd305h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/28/测试文章/" data-id="ck86vuezb000kx0vfy55rvfv0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -190,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/09/28/hello-world/" data-id="ck862swmr0008usvfz7lnewcg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/09/28/hello-world/" data-id="ck86vueyu0005x0vffowc93yg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -250,6 +347,10 @@
       <ul>
         
           <li>
+            <a href="/2020/03/25/读书笔记——《JavaScript模式》/">读书笔记——《JavaScript模式》</a>
+          </li>
+        
+          <li>
             <a href="/2020/03/24/春招面试题（CSS篇）/">春招面试题（CSS篇）</a>
           </li>
         
@@ -263,10 +364,6 @@
         
           <li>
             <a href="/2020/03/10/手写代码——call，apply，bind/">手写代码——call，apply，bind</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/09/Linux上的MySQL基本命令/">Linux上的MySQL基本命令</a>
           </li>
         
       </ul>
