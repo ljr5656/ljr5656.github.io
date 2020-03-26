@@ -7,14 +7,18 @@
   
   <title>春招面试题（CSS篇） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="说说CSS选择器以它们的优先级 !important 内联样式（1000） ID选择器（0100） 类选择器/伪类选择器/属性选择器（0010） 元素选择器/伪元素选择器/关系选择器（0001） 通配符选择器（0000）  你知道BFC吗？ BFC是什么？BFC 全称为块级格式化上下文 (Block Formatting Context) 。BFC是 W3C CSS 2.1 规范中的一个概念，它决">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
 <meta property="og:title" content="春招面试题（CSS篇）">
 <meta property="og:url" content="http://yoursite.com/2020/03/24/春招面试题（CSS篇）/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="说说CSS选择器以它们的优先级 !important 内联样式（1000） ID选择器（0100） 类选择器/伪类选择器/属性选择器（0010） 元素选择器/伪元素选择器/关系选择器（0001） 通配符选择器（0000）  你知道BFC吗？ BFC是什么？BFC 全称为块级格式化上下文 (Block Formatting Context) 。BFC是 W3C CSS 2.1 规范中的一个概念，它决">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-24T15:32:24.214Z">
+<meta property="og:updated_time" content="2020-03-26T12:29:43.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春招面试题（CSS篇）">
+<meta name="twitter:description" content="说说CSS选择器以它们的优先级 !important 内联样式（1000） ID选择器（0100） 类选择器/伪类选择器/属性选择器（0010） 元素选择器/伪元素选择器/关系选择器（0001） 通配符选择器（0000）  你知道BFC吗？ BFC是什么？BFC 全称为块级格式化上下文 (Block Formatting Context) 。BFC是 W3C CSS 2.1 规范中的一个概念，它决">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -83,13 +87,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="说说CSS选择器以它们的优先级"><a href="#说说CSS选择器以它们的优先级" class="headerlink" title="说说CSS选择器以它们的优先级"></a>说说CSS选择器以它们的优先级</h2><ul>
+<li><code>!important</code></li>
+<li>内联样式（1000）</li>
+<li>ID选择器（0100）</li>
+<li>类选择器/伪类选择器/属性选择器（0010）</li>
+<li>元素选择器/伪元素选择器/关系选择器（0001）</li>
+<li>通配符选择器（0000）</li>
+</ul>
+<h2 id="你知道BFC吗？"><a href="#你知道BFC吗？" class="headerlink" title="你知道BFC吗？"></a>你知道BFC吗？</h2><ul>
+<li><h3 id="BFC是什么？"><a href="#BFC是什么？" class="headerlink" title="BFC是什么？"></a>BFC是什么？</h3>BFC 全称为块级格式化上下文 (Block Formatting Context) 。BFC是 W3C CSS 2.1 规范中的一个概念，它决定了元素如何对其内容进行定位以及与其他元素的关系和相互作用，当涉及到可视化布局的时候，Block Formatting Context提供了一个环境，HTML元素在这个环境中按照一定规则进行布局。一个环境中的元素不会影响到其它环境中的布局。比如浮动元素会形成BFC，浮动元素内部子元素的主要受该浮动元素影响，两个浮动元素之间是互不影响的。这里有点类似一个BFC就是一个独立的行政单位的意思。可以说BFC就是一个作用范围，把它理解成是一个独立的容器，并且这个容器里box的布局与这个容器外的box毫不相干。</li>
+<li><h3 id="BFC触发的条件有哪些？"><a href="#BFC触发的条件有哪些？" class="headerlink" title="BFC触发的条件有哪些？"></a>BFC触发的条件有哪些？</h3></li>
+</ul>
+<ol>
+<li><code>float</code>不为<code>none</code></li>
+<li><code>position</code>不为<code>relative</code>和<code>static</code></li>
+<li><code>overflow</code>为<code>auto</code>、<code>scroll</code>、<code>hidden</code></li>
+<li><code>display</code>的值为<code>table-cell</code>或<code>inline-block</code></li>
+<li><code>flex</code>或<code>inline-flex</code></li>
+</ol>
+<ul>
+<li><h3 id="BFC可以什么？"><a href="#BFC可以什么？" class="headerlink" title="BFC可以什么？"></a>BFC可以什么？</h3></li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/24/春招面试题（CSS篇）/" data-id="ck86vuez8000hx0vf7a1bwh9k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/24/春招面试题（CSS篇）/" data-id="ck88phh4x000bzwvfwnegza3d" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
+
     </footer>
   </div>
   
@@ -137,7 +165,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Nginx/" style="font-size: 15px;">Nginx</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
+      <a href="/tags/CSS/" style="font-size: 15px;">CSS</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Nginx/" style="font-size: 15px;">Nginx</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/test/" style="font-size: 10px;">test</a>
     </div>
   </div>
 
