@@ -15,10 +15,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="说说CSS选择器以它们的优先级 !important 内联样式（1000） ID选择器（0100） 类选择器/伪类选择器/属性选择器（0010） 元素选择器/伪元素选择器/关系选择器（0001） 通配符选择器（0000）  你知道BFC吗？ BFC是什么？BFC 全称为块级格式化上下文 (Block Formatting Context) 。BFC是 W3C CSS 2.1 规范中的一个概念，它决">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-03-26T12:29:43.045Z">
+<meta property="og:image" content="http://yoursite.com/image/BFC/bfc_01.png">
+<meta property="og:image" content="http://yoursite.com/image/BFC/bfc_02.png">
+<meta property="og:updated_time" content="2020-03-30T04:34:43.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="春招面试题（CSS篇）">
 <meta name="twitter:description" content="说说CSS选择器以它们的优先级 !important 内联样式（1000） ID选择器（0100） 类选择器/伪类选择器/属性选择器（0010） 元素选择器/伪元素选择器/关系选择器（0001） 通配符选择器（0000）  你知道BFC吗？ BFC是什么？BFC 全称为块级格式化上下文 (Block Formatting Context) 。BFC是 W3C CSS 2.1 规范中的一个概念，它决">
+<meta name="twitter:image" content="http://yoursite.com/image/BFC/bfc_01.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -107,13 +110,18 @@
 <li><code>flex</code>或<code>inline-flex</code></li>
 </ol>
 <ul>
-<li><h3 id="BFC可以什么？"><a href="#BFC可以什么？" class="headerlink" title="BFC可以什么？"></a>BFC可以什么？</h3></li>
+<li><h3 id="BFC可以干什么？"><a href="#BFC可以干什么？" class="headerlink" title="BFC可以干什么？"></a>BFC可以干什么？</h3><h4 id="1-解决浮动元素领父元素高度坍塌的问题"><a href="#1-解决浮动元素领父元素高度坍塌的问题" class="headerlink" title="1. 解决浮动元素领父元素高度坍塌的问题"></a>1. 解决浮动元素领父元素高度坍塌的问题</h4>当对 未设置高度的父元素 中的所有子元素设为浮动时，就会导致父元素的高度坍塌。<br><img src="/image/BFC/bfc_01.png" alt><br><img src="/image/BFC/bfc_02.png" alt><br>解决方法：<ol>
+<li>对父元添加 <code>overflow: hidden</code> 或 <code>display: table-ceil</code> 等属性;</li>
+<li>使父元素也浮动，这种方法的缺点是，会影响后续元素的排列;</li>
+<li>为浮动的最后一个元素设置伪元素<code>::after {clear: both}</code>;<h4 id="2-解决两栏布局左侧宽度固定，右侧自适应宽度"><a href="#2-解决两栏布局左侧宽度固定，右侧自适应宽度" class="headerlink" title="2. 解决两栏布局左侧宽度固定，右侧自适应宽度"></a>2. 解决两栏布局左侧宽度固定，右侧自适应宽度</h4></li>
+</ol>
+</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/03/24/春招面试题（CSS篇）/" data-id="ck88phh4x000bzwvfwnegza3d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/03/24/春招面试题（CSS篇）/" data-id="ck8dvpkhq000dv4vfy43x9aa8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li></ul>
